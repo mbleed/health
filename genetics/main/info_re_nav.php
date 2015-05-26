@@ -1,0 +1,1 @@
+<?php include 'info_nav.php'; //include tabbed nav bar common to top, variable tells which tab should be active ?>

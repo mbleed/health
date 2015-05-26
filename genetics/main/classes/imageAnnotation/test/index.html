@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>Image Annotation</title>
+		<style type="text/css">
+			body
+			{
+				padding: 0px;
+				margin: 0px;
+				background-color: #151515;
+				color: gray;
+				font-family: Tahoma;
+				font-size: 11pt;
+				font-weight: normal;
+			}
+		</style>
+
+		<!-- DEBUG -->
+		<!--script type="text/javascript" src="debug/prototype.js"></script>
+		<script type="text/javascript" src="debug/effects.js"></script>
+		<script type="text/javascript" src="debug/logger.js"></script>
+		<script type="text/javascript" src="debug/std.js"></script-->
+
+		<!-- PHOTONOTES -->
+		<script type="text/javascript" src="../PhotoNotes/DragResize.js"></script>
+		<link rel="stylesheet" href="../PhotoNotes/DragResize.css" type="text/css">
+		<script type="text/javascript" src="../PhotoNotes/PhotoNotes.js"></script>
+		<link rel="stylesheet" href="../PhotoNotes/PhotoNotes.css" type="text/css">
+
+		<!-- UTILS -->
+		<script language="JavaScript" src="ImageAnnotation.js"></script>
+
+		<script type="text/javascript">
+			function go() {
+			var notesArray	= [
+			{'id':'1','rect':{'left':270,'top':80,'width':60,'height':40},'title':'annotation 1','text':'Human think'},
+			{'id':'2','rect':{'left':180,'top':300,'width':70,'height':60},'title':'annotation 2','text':'Thinkpad'},
+			{'id':'3','rect':{'left':2,'top':10,'width':180,'height':150},'title':'annotation 3','text':'Think nothing'}
+			 ];
+
+               		// create the image annotation object
+			imageAnnotation	= new ImageAnnotation('PhotoContainer',notesArray);
+			}
+
+			function addNote()
+			{
+				if (imageAnnotation.isReadonly()) {
+					alert('Notes set is read only, note can\'t be added')
+					} else {
+					imageAnnotation.addNote()
+					}
+			}
+
+			function setEditable()
+			{
+				imageAnnotation.setReadonly(false);
+			}
+
+			function setReadonly()
+			{
+				imageAnnotation.setReadonly(true);
+			}
+
+			function toggleReadonly()
+			{
+				imageAnnotation.toggleReadonly(true);
+			}
+
+			function hideAllNotes()
+			{
+				imageAnnotation.hideAllNotes();
+			}
+
+			function showAllNotes()
+			{
+				imageAnnotation.showAllNotes();
+			}
+
+			function generateRDF() {
+
+			}
+		</script>
+
+	</head>
+
+	<body style="" onload="go()">
+
+		<h1>Image Annotation</h1>
+
+
+		<a href="" onclick="setEditable();return false">setEditable</a>
+		|
+		<a href="" onclick="setReadonly();return false">setReadonly</a>
+		|
+		<a href="" onclick="toggleReadonly();return false">toggleReadonly</a>
+		|
+		<a href="" onclick="hideAllNotes();return false">hideAll</a>
+		|
+		<a href="" onclick="showAllNotes();return false">showAll</a>
+		|
+		<a href="" onclick="addNote();return false">add note</a>
+		<!--
+		|
+		<a href="" onclick="std_debugJS();return false">std_debugJS</a>
+		-->
+		<br><br>
+		
+		<div class="Photo fn-container" id="PhotoContainer">
+			<img src="GIG.jpg" galleryimg="no" />
+		</div>
+
+
+	</body>
+</html>
